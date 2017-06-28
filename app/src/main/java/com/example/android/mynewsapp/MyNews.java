@@ -1,15 +1,11 @@
 package com.example.android.mynewsapp;
 
-/**
- * Created by anna on 28.06.2017.
- */
-
 public class MyNews {
-    private String author;
-    private String title;
-    private String url;
-    private String date;
-    private String topic;
+    final private String author;
+    final private String title;
+    final private String url;
+    final private String date;
+    final private String topic;
     public MyNews(String author, String title, String url, String date, String topic) {
         this.author = author;
         this.title = title;

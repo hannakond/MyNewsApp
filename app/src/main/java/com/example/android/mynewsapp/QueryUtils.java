@@ -23,16 +23,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Created by anna on 28.06.2017.
- */
-
 public class QueryUtils {
-
     private static final String LOG_TAG = QueryUtils.class.getSimpleName();
-
     public static URL createUrl() {
-        String url = createStringUrl();
+        final String url = createStringUrl();
         try {
             return new URL(url);
         } catch (MalformedURLException e) {
@@ -40,7 +34,6 @@ public class QueryUtils {
             return null;
         }
     }
-
     public static String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";
 
@@ -79,18 +72,18 @@ public class QueryUtils {
     public static List<MyNews> parseJson(String response) {
         ArrayList<MyNews> newsArrayList = new ArrayList<>();
         try {
-            JSONObject jsonResponse = new JSONObject(response);
-            JSONObject jsonResults = jsonResponse.getJSONObject("response");
-            JSONArray resultsArray = jsonResults.getJSONArray("results");
+            final JSONObject jsonResponse = new JSONObject(response);
+            final JSONObject jsonResults = jsonResponse.getJSONObject("response");
+            final JSONArray resultsArray = jsonResults.getJSONArray("results");
 
             for (int i = 0; i < resultsArray.length(); i++) {
-                JSONObject result = resultsArray.getJSONObject(i);
-                String webTitle = result.getString("webTitle");
-                String webUrl = result.getString("webUrl");
+                final JSONObject result = resultsArray.getJSONObject(i);
+                final String webTitle = result.getString("webTitle");
+                final String webUrl = result.getString("webUrl");
                 String webPublicationDate = result.getString("webPublicationDate");
                 webPublicationDate = formatDate(webPublicationDate);
-                String sectionName = result.getString("sectionName");
-                JSONArray tags = result.getJSONArray("tags");
+                final String sectionName = result.getString("sectionName");
+                final JSONArray tags = result.getJSONArray("tags");
                 String webAuthor = "";
 
                 if (tags.length() == 0) {
@@ -108,9 +101,8 @@ public class QueryUtils {
         }
         return newsArrayList;
     }
-
     private static String readFromStream(InputStream inputStream) throws IOException {
-        StringBuilder output = new StringBuilder();
+        final StringBuilder output = new StringBuilder();
         if (inputStream != null) {
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, Charset.forName("UTF-8"));
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -122,10 +114,9 @@ public class QueryUtils {
         }
         return output.toString();
     }
-
     private static String formatDate(String rawDate) {
-        String jsonDatePattern = "yyyy-MM-dd'T'HH:mm:ss'Z'";
-        SimpleDateFormat jsonFormatter = new SimpleDateFormat(jsonDatePattern, Locale.US);
+        final String jsonDatePattern = "yyyy-MM-dd'T'HH:mm:ss'Z'";
+        final SimpleDateFormat jsonFormatter = new SimpleDateFormat(jsonDatePattern, Locale.US);
         try {
             Date parsedJsonDate = jsonFormatter.parse(rawDate);
             String finalDatePattern = "MMM d, yyy";
@@ -136,9 +127,8 @@ public class QueryUtils {
             return "";
         }
     }
-
     private static String createStringUrl() {
-        Uri.Builder builder = new Uri.Builder();
+        final Uri.Builder builder = new Uri.Builder();
         builder.scheme("https")
                 .encodedAuthority("content.guardianapis.com")
                 .appendPath("search")

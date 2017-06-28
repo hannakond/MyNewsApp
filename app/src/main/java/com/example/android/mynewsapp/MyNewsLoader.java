@@ -8,30 +8,25 @@ import java.net.URL;
 import java.util.List;
 
 public class MyNewsLoader extends AsyncTaskLoader<List<MyNews>> {
-
     private static final String LOG_TAG = MyNewsLoader.class.getName();
-
     public MyNewsLoader(Context context) {
         super(context);
     }
-
     @Override
     protected void onStartLoading() {
         super.onStartLoading();
         forceLoad();
     }
-
     @Override
     public List<MyNews> loadInBackground() {
-        List<MyNews> NewsList = null;
+        List<MyNews> newsList = null;
         try {
             URL url = QueryUtils.createUrl();
             String jsonResponse = QueryUtils.makeHttpRequest(url);
-            NewsList = QueryUtils.parseJson(jsonResponse);
+            newsList = QueryUtils.parseJson(jsonResponse);
         } catch (IOException e) {
             Log.e(LOG_TAG, "Error Loader LoadInBackground: ", e);
         }
-        return NewsList;
+        return newsList;
     }
-
 }

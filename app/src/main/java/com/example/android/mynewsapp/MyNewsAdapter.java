@@ -16,10 +16,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MyNewsAdapter extends ArrayAdapter<MyNews> {
-
     public MyNewsAdapter(Context context) {
         super(context, -1, new ArrayList<MyNews>());
-
     }
     @NonNull
     @Override
@@ -30,18 +28,18 @@ public class MyNewsAdapter extends ArrayAdapter<MyNews> {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.news_list, parent, false);
         }
 
-        MyNews currentNews = getItem(position);
+        final MyNews currentNews = getItem(position);
 
-        TextView titleTextView = (TextView) listItemView.findViewById(R.id.title_view);
+        final TextView titleTextView = (TextView) listItemView.findViewById(R.id.title_view);
         titleTextView.setText(currentNews.getTitle());
 
-        TextView authorTextView = (TextView) listItemView.findViewById(R.id.author_view);
+        final TextView authorTextView = (TextView) listItemView.findViewById(R.id.author_view);
         authorTextView.setText(currentNews.getAuthor());
 
-        TextView dateTextView = (TextView) listItemView.findViewById(R.id.date_view);
+        final TextView dateTextView = (TextView) listItemView.findViewById(R.id.date_view);
         authorTextView.setText(currentNews.getDate());
 
-        TextView topicTextView = (TextView) listItemView.findViewById(R.id.topic_view);
+        final TextView topicTextView = (TextView) listItemView.findViewById(R.id.topic_view);
         authorTextView.setText(currentNews.getTopic());
 
         return listItemView;
