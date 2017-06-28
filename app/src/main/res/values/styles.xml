@@ -1,0 +1,29 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="Title" parent="Base.TextAppearance.AppCompat.Large">
+        <item name="android:layout_marginTop">@dimen/basic_margin</item>
+        <item name="android:layout_marginRight">@dimen/basic_margin</item>
+        <item name="android:layout_marginBottom">@dimen/bottom_margin</item>
+        <item name="android:layout_marginLeft">@dimen/basic_margin</item>
+    </style>
+    <style name="Author" parent="Base.TextAppearance.AppCompat.Small">
+        <item name="android:layout_marginRight">@dimen/basic_margin</item>
+        <item name="android:layout_marginBottom">@dimen/bottom_margin</item>
+        <item name="android:layout_marginLeft">@dimen/basic_margin</item>
+    </style>
+    <style name="Date" parent="Base.TextAppearance.AppCompat.Small">
+        <item name="android:layout_marginBottom">@dimen/bottom_margin</item>
+        <item name="android:layout_marginLeft">@dimen/basic_margin</item>
+    </style>
+    <style name="Topic" parent="Base.TextAppearance.AppCompat.Small">
+        <item name="android:layout_marginRight">@dimen/basic_margin</item>
+        <item name="android:layout_marginBottom">@dimen/bottom_margin</item>
+        <item name="android:gravity">right</item>
+    </style>
+</resources>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MyNewsApp</string>
+    <string name="title_placeholder">Good News Everyone!</string>
+    <string name="author_placeholder">Hubert J. Farnsworth</string>
+    <string name="date_placeholder">Aug 9, 1974</string>
+    <string name="topic_placeholder">Topic</string>
+    <string name="search">Search</string>
+    <string name="search_hint">Search for News</string>
+    <string name="no_news_found">Sorry, no news found:(</string>
+    <string name="try_another">Please try another search query</string>
+    <string name="no_internet">Sorry, no internet connection:(</string>
+</resources>
